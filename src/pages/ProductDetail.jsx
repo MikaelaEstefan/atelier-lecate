@@ -1,11 +1,15 @@
 import { useParams } from "react-router-dom";
 import { useProductStore } from "../store/useProductStore";
+import { useCartStore } from "../store/useCartStore";
+
 
 export default function ProductDetail() {
   const { id } = useParams();
   const products = useProductStore((s) => s.products);
 
   const product = products.find((p) => p.id === id);
+  const addItem = useCartStore((s) => s.addItem);
+
 
   if (!product) {
     return <p className="p-12">Obra no encontrada.</p>;
@@ -28,9 +32,13 @@ export default function ProductDetail() {
           ${product.price}
         </p>
 
-        <button className="border border-black px-6 py-3 text-sm">
-          Agregar al carrito
-        </button>
+        <button
+            onClick={() => addItem(product)}
+            className="border border-black px-6 py-3 text-sm hover:bg-black hover:text-white transition"
+          >
+            Agregar al carrito
+          </button>
+
       </div>
     </section>
   );
