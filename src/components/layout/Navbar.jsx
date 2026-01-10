@@ -20,7 +20,7 @@ export default function Navbar() {
 
       <nav className="flex items-center gap-6">
         <Link to="/products" className="text-sm hover:opacity-70">
-          Tienda
+          {t("nav_shop")}
         </Link>
         <button
           onClick={toggleLang}

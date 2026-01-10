@@ -8,6 +8,8 @@ export const translations = {
     home_cta: "Ir a la tienda",
 
     products_title: "Obras disponibles",
+    product_add_to_cart: "Agregar al carrito",
+    product_sold: "Obra vendida",
     empty_products: "No hay obras disponibles en este momento.",
 
     cart_title: "Carrito",
@@ -31,6 +33,8 @@ export const translations = {
     home_cta: "Go to shop",
 
     products_title: "Available works",
+    product_add_to_cart: "Add to cart",
+    product_sold: "Sold",
     empty_products: "No works available at the moment.",
 
     cart_title: "Cart",
