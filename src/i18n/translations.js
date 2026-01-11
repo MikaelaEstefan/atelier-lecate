@@ -7,6 +7,12 @@ export const translations = {
       "Obras originales y piezas únicas creadas en un espacio de exploración artística, materia y tiempo.",
     home_cta: "Ir a la tienda",
 
+    payment_success_title: "Pago realizado",
+    payment_success_text:
+    "El pago se realizó correctamente. Gracias por tu compra.",
+    payment_failure_title: "Pago rechazado",
+    payment_failure_text:
+    "No se pudo completar el pago. Podés intentar nuevamente.",
     products_title: "Obras disponibles",
     product_add_to_cart: "Agregar al carrito",
     product_sold: "Obra vendida",
@@ -32,6 +38,13 @@ export const translations = {
       "Original works and unique pieces created in a space of artistic exploration—matter and time.",
     home_cta: "Go to shop",
 
+    payment_success_title: "Payment successful",
+    payment_success_text:
+    "The payment was completed successfully. Thank you for your purchase.",
+
+    payment_failure_title: "Payment failed",
+    payment_failure_text:
+    "The payment could not be completed. You may try again.",
     products_title: "Available works",
     product_add_to_cart: "Add to cart",
     product_sold: "Sold",

@@ -26,6 +26,12 @@ app.post("/create-preference", async (req, res) => {
           quantity: 1,
           currency_id: "UYU",
         })),
+        back_urls: {
+        success: "http://localhost:5173/success",
+        failure: "http://localhost:5173/failure",
+        pending: "http://localhost:5173/failure",
+      },
+        auto_return: "approved",
       },
     });
 
