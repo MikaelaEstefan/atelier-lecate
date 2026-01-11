@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { products } from "../data/products";
 import { useCartStore } from "../store/useCartStore";
+import { useSalesStore } from "../store/useSalesStore";
 import { useT } from "../i18n/useT";
 
 export default function ProductDetail() {
@@ -11,6 +12,8 @@ export default function ProductDetail() {
   const { t, lang } = useT();
 
   if (!product) return null;
+
+  const isSold = useSalesStore((s) => s.isSold(product.id));
 
   return (
     <section className="px-12 py-16 max-w-xl">
@@ -26,7 +29,7 @@ export default function ProductDetail() {
         ${product.price}
       </p>
 
-      {product.available ? (
+      {!isSold ? (
         <button
           onClick={() => addItem(product)}
           className="border border-black px-6 py-3 text-sm hover:bg-black hover:text-white transition"
@@ -41,4 +44,5 @@ export default function ProductDetail() {
     </section>
   );
 }
+
 
