@@ -1,5 +1,6 @@
 import { useProductStore } from "../store/useProductStore";
 import ProductGrid from "../components/products/ProductGrid";
+import { useSalesStore } from "../store/useSalesStore";
 import { useT } from "../i18n/useT";
 
 export default function Products() {
@@ -7,8 +8,10 @@ export default function Products() {
 
   const { t } = useT();
 
+  const soldIds = useSalesStore((s) => s.soldIds);
+
   const availableProducts = products.filter(
-    (product) => product.available
+  (p) => !soldIds.includes(p.id)
   );
 
   return (
