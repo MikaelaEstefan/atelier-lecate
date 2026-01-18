@@ -16,24 +16,23 @@ export default function ProductDetail() {
   const isSold = useSalesStore((s) => s.isSold(product.id));
 
   return (
-    <section className="px-12 py-16 max-w-xl">
-      <h1 className="text-3xl font-light mb-6">
-        {product.title}
+    <section className="px-16 py-24 max-w-2xl">
+      <h1 className="text-4xl font-light mb-6">
+      {product.title}
       </h1>
 
-      <p className="text-sm text-[#8A8A8A] mb-6">
-        {product.description[lang]}
+      <p className="text-sm text-[#8FA3AD] leading-relaxed mb-8">
+      {product.description[lang]}
       </p>
 
-      <p className="text-lg mb-10">
-        ${product.price}
+       <p className="text-lg mb-12">
+      ${product.price}
       </p>
 
       {!isSold ? (
         <button
           onClick={() => addItem(product)}
-          className="border border-black px-6 py-3 text-sm hover:bg-black hover:text-white transition"
-        >
+          className="text-sm tracking-wide border-b border-[#4F6D7A] pb-1 hover:opacity-60 transition">
           {t("product_add_to_cart")}
         </button>
       ) : (

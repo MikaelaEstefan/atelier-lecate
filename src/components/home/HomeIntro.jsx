@@ -5,18 +5,18 @@ export default function HomeIntro() {
   const { t } = useT();
 
   return (
-    <div className="flex flex-col justify-center px-12">
-      <h1 className="text-4xl font-light mb-6">
-        {t("brand")}
+    <div className="px-16 max-w-md">
+      <h1 className="text-5xl font-light tracking-wide mb-10">
+        Atelier Lecate
       </h1>
 
-      <p className="text-sm text-[#8A8A8A] max-w-md mb-8">
+      <p className="text-base text-[#8FA3AD] leading-relaxed mb-12">
         {t("home_tagline")}
       </p>
 
       <Link
         to="/products"
-        className="inline-block border border-black px-6 py-3 text-sm w-fit hover:bg-black hover:text-white transition"
+        className="text-sm tracking-wide underline underline-offset-8 hover:opacity-60 transition"
       >
         {t("home_cta")}
       </Link>

@@ -4,7 +4,7 @@ import Footer from "../components/layout/Footer";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#FAF7F2] text-[#1C1C1C]">
+    <div className="min-h-screen">
       <Navbar />
       <Outlet />
       <Footer />
