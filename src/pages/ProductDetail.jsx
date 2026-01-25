@@ -19,9 +19,14 @@ export default function ProductDetail() {
       <div className="container product-detail">
 
         {/* Imagen */}
-        <div className="product-detail-image">
-          <div className="product-image-placeholder" />
-        </div>
+          <div className="product-detail-image">
+            <img
+              src={product.image}
+              alt={product.title}
+              className="product-detail-img"
+            />
+          </div>
+
 
         {/* Texto */}
         <div className="product-detail-info">

@@ -5,9 +5,9 @@ export default function ProductCard({ product }) {
     <article className="product-card">
       <Link to={`/products/${product.id}`} className="product-card-link">
         
-        <div className="product-image-placeholder">
-          {/* imagen */}
-        </div>
+      <div className="product-image">
+        <img src={product.image} alt={product.title} />
+      </div>
 
         <h2 className="product-title">
           {product.title}

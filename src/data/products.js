@@ -32,5 +32,38 @@ export const products = [
     image: "/images/obra-3.jpg",
     available: false,
   },
+  {
+    id: "obra-004",
+    title: "Amigos en vuelo",
+    description: {
+      es: "Serie de exploración de aves.",
+      en: "Series of bird exploration.",
+    },
+    price: 22000,
+    image: "/images/obra-4.jpg",
+    available: true,
+  },
+  {
+    id: "obra-005",
+    title: "En reunión con la naturaleza",
+    description: {
+      es: "Recuerdos de una infancia.",
+      en: "Childhood memories.",
+    },
+    price: 18000,
+    image: "/images/obra-5.jpg",
+    available: true,
+  },
+  {
+    id: "obra-006",
+    title: "Comunión",
+    description: {
+      es: "Series de exploración animal.",
+      en: "Series of animal exploration.",
+    },
+    price: 30000,
+    image: "/images/obra-6.jpg",
+    available: false,
+  },
 ];
 
