@@ -1,0 +1,197 @@
+:root {
+  --bg-main: #FAF8F4;
+  --text-main: #4F6D7A;
+  --text-muted: #8FA3AD;
+  --max-width: 1200px;
+  --padding-x: 1.5rem;
+  --padding-y: 2rem;
+}
+
+html, body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* Links */
+a {
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+/* Reset botones */
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+/* Tipografía base */
+h1, h2, h3 {
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+/* Texto secundario */
+.text-muted {
+  color: var(--text-muted);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-left: var(--padding-x);
+  padding-right: var(--padding-x);
+}
+
+.section {
+  padding-top: var(--padding-y);
+  padding-bottom: var(--padding-y);
+}
+
+/* =====================
+   NAVBAR
+===================== */
+
+.navbar {
+  background-color: #bfd7e5;
+  color: var(--bg-main);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.navbar-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 64px;
+}
+
+.nav-left a {
+  font-size: 0.85rem;
+}
+
+.logo {
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.lang-btn {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+}
+
+.lang-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.cart-link {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  font-size: 0.6rem;
+  background: var(--bg-main);
+  color: var(--text-main);
+  border-radius: 999px;
+  padding: 0 5px;
+}
+
+/* =====================
+   HOME INTRO
+===================== */
+
+.home-intro {
+  max-width: 480px;
+}
+
+.home-title {
+  font-size: 2.8rem; /* equivalente a text-5xl pero más editorial */
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  margin-bottom: 2.5rem;
+}
+
+.home-description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+  color: var(--text-muted);
+}
+
+.home-cta {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+}
+
+.home-cta:hover {
+  opacity: 0.6;
+}
+
+/* =====================
+   HOME INTRO LAYOUT
+===================== */
+
+.home-intro-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.home-intro-text {
+  max-width: 480px;
+}
+
+.home-intro-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .home-intro-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .home-intro-text {
+    max-width: 100%;
+  }
+}
+
+/* =====================
+   HOME EDITORIAL IMAGE
+===================== */
+
+.home-editorial {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.home-editorial img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.92;
+}
