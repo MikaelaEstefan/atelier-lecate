@@ -334,6 +334,14 @@ h1, h2, h3 {
   height: auto;
   display: block;
   opacity: 0.95;
+  max-width: 520px;
+}
+
+.product-detail-img {
+  width: 100%;
+  aspect-ratio: 4 / 5; /* CLAVE */
+  object-fit: cover;
+  display: block;
 }
 
 /* =====================
