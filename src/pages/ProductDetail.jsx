@@ -6,42 +6,55 @@ import { useT } from "../i18n/useT";
 
 export default function ProductDetail() {
   const { id } = useParams();
-  const product = products.find((p) => p.id === id);
-
-  const addItem = useCartStore((s) => s.addItem);
   const { t, lang } = useT();
+
+  const product = products.find((p) => p.id === id);
+  const addItem = useCartStore((s) => s.addItem);
+  const isSold = useSalesStore((s) => s.isSold(product?.id));
 
   if (!product) return null;
 
-  const isSold = useSalesStore((s) => s.isSold(product.id));
-
   return (
-    <section className="px-16 py-24 max-w-2xl">
-      <h1 className="text-4xl font-light mb-6">
-      {product.title}
-      </h1>
+    <section className="section">
+      <div className="container product-detail">
 
-      <p className="text-sm text-[#8FA3AD] leading-relaxed mb-8">
-      {product.description[lang]}
-      </p>
+        {/* Imagen */}
+        <div className="product-detail-image">
+          <div className="product-image-placeholder" />
+        </div>
 
-       <p className="text-lg mb-12">
-      ${product.price}
-      </p>
+        {/* Texto */}
+        <div className="product-detail-info">
+          <h1 className="product-detail-title">
+            {product.title}
+          </h1>
 
-      {!isSold ? (
-        <button
-          onClick={() => addItem(product)}
-          className="text-sm tracking-wide border-b border-[#4F6D7A] pb-1 hover:opacity-60 transition">
-          {t("product_add_to_cart")}
-        </button>
-      ) : (
-        <p className="text-sm text-[#8A8A8A]">
-          {t("product_sold")}
-        </p>
-      )}
+          <p className="product-detail-description">
+            {product.description[lang]}
+          </p>
+
+          <p className="product-detail-price">
+            ${product.price}
+          </p>
+
+          {!isSold ? (
+            <button
+              onClick={() => addItem(product)}
+              className="product-detail-cta"
+            >
+              {t("product_add_to_cart")}
+            </button>
+          ) : (
+            <p className="product-detail-sold">
+              {t("product_sold")}
+            </p>
+          )}
+        </div>
+
+      </div>
     </section>
   );
 }
+
 
 
