@@ -5,11 +5,11 @@ export default function ProductGrid({ products }) {
   const { t } = useT();
 
   if (!products.length) {
-    return <p className="text-sm text-[#8A8A8A]">{t("empty_products")}</p>;
+    return <p className="product-empty">{t("empty_products")}</p>;
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+    <div className="product-grid">
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
