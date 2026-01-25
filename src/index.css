@@ -4,19 +4,14 @@
 
 
 :root {
-  --bg-main: #FAF8F4;      
-  --text-main: #4F6D7A;     
-  --text-muted: #8FA3AD;   
+  --bg-main: #FAF8F4;
+  --text-main: #4F6D7A;
+  --text-muted: #8FA3AD;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
+html, body {
   background-color: var(--bg-main);
   color: var(--text-main);
-  font-family: 'Inter', system-ui, sans-serif;
-  min-height: 100%;
 }
 
 /* Links */

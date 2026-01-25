@@ -19,13 +19,13 @@ export default function HomeSlider() {
   }, []);
 
   return (
-    <div className="relative w-full h-full overflow-hidden">
+    <div className="relative w-full h-[320px] md:h-[420px] overflow-hidden rounded-sm">
       <AnimatePresence mode="wait">
         <motion.img
           key={index}
           src={images[index]}
           alt=""
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-90"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

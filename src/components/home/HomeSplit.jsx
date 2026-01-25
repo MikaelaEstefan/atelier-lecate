@@ -3,9 +3,13 @@ import HomeSlider from "./HomeSlider";
 
 export default function HomeSplit() {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 min-h-[70vh]">
-      <HomeIntro />
-      <HomeSlider />
+    <section className="grid md:grid-cols-2 gap-12 px-16 py-24">
+      <div>
+        <HomeIntro />
+      </div>
+      <div>
+        <HomeSlider />
+      </div>
     </section>
   );
 }
