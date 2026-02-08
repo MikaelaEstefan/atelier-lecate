@@ -261,6 +261,22 @@ h1, h2, h3 {
   color: var(--text-muted);
 }
 
+.product-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;   
+  overflow: hidden;
+  background: #eaeaea;
+  margin-bottom: 0.75rem;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
 /* =====================
    PRODUCT DETAIL
 ===================== */
@@ -328,20 +344,12 @@ h1, h2, h3 {
 }
 
 /* Imagen producto */
-
 .product-detail-img {
   width: 100%;
-  height: auto;
-  display: block;
-  opacity: 0.95;
-  max-width: 520px;
-}
-
-.product-detail-img {
-  width: 100%;
-  aspect-ratio: 4 / 5; /* CLAVE */
+  aspect-ratio: 4 / 5; 
   object-fit: cover;
   display: block;
+  opacity: 0.95;
 }
 
 /* =====================
@@ -352,4 +360,124 @@ h1, h2, h3 {
   font-size: 2rem;
   font-weight: 300;
   margin-bottom: 3rem;
+}
+
+/* =====================
+   CART
+===================== */
+
+.cart {
+  max-width: 900px;
+}
+
+.cart-empty {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.cart-link-inline {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+}
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.cart-item:last-child {
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.cart-item-media {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.cart-thumb {
+  width: 86px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #eaeaea;
+  flex-shrink: 0;
+}
+
+.cart-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cart-item-title {
+  font-size: 0.9rem;
+  margin: 0 0 0.25rem;
+}
+
+.cart-item-price {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.cart-remove {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.cart-remove:hover {
+  opacity: 0.6;
+}
+
+.cart-summary {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.cart-total {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  padding-top: 1rem;
+}
+
+.cart-cta {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.25rem;
+}
+
+.cart-cta:hover {
+  opacity: 0.6;
+}
+
+@media (max-width: 640px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
 }

@@ -10,61 +10,58 @@ export default function Cart() {
 
   if (!items.length) {
     return (
-      <div className="px-12 py-16">
-        <p className="text-sm text-[#8A8A8A]">
-          {t("cart_empty")}
-        </p>
+      <section className="section">
+        <div className="container cart">
+          <p className="cart-empty">{t("cart_empty")}</p>
 
-        <Link
-          to="/products"
-          className="text-sm underline mt-4 inline-block"
-        >
-          {t("cart_view_products")}
-        </Link>
-      </div>
+          <Link to="/products" className="cart-link-inline">
+            {t("cart_view_products")}
+          </Link>
+        </div>
+      </section>
     );
   }
 
   return (
-    <section className="px-12 py-16 max-w-xl">
-      <h1 className="text-2xl font-light mb-10">
-        {t("cart_title")}
-      </h1>
+    <section className="section">
+      <div className="container cart">
+        <h1 className="page-title">{t("cart_title")}</h1>
 
-      <ul className="space-y-6 mb-10">
-        {items.map((item) => (
-          <li
-            key={item.id}
-            className="flex justify-between items-center"
-          >
-            <div>
-              <p className="text-sm">{item.title}</p>
-              <p className="text-xs text-[#8A8A8A]">
-                ${item.price}
-              </p>
+        <div className="cart-list">
+          {items.map((item) => (
+            <div key={item.id} className="cart-item">
+              <div className="cart-item-media">
+                <div className="cart-thumb">
+                  <img src={item.image} alt={item.title} />
+                </div>
+
+                <div className="cart-item-info">
+                  <p className="cart-item-title">{item.title}</p>
+                  <p className="cart-item-price">${item.price}</p>
+                </div>
+              </div>
+
+              <button
+                onClick={() => removeItem(item.id)}
+                className="cart-remove"
+              >
+                {t("cart_remove")}
+              </button>
             </div>
+          ))}
+        </div>
 
-            <button
-              onClick={() => removeItem(item.id)}
-              className="text-xs underline"
-            >
-              {t("cart_remove")}
-            </button>
-          </li>
-        ))}
-      </ul>
+        <div className="cart-summary">
+          <div className="cart-total">
+            <span>{t("cart_total")}</span>
+            <span>${total}</span>
+          </div>
 
-      <div className="flex justify-between items-center mb-8">
-        <p className="text-sm">{t("cart_total")}</p>
-        <p className="text-lg">${total}</p>
+          <Link to="/checkout" className="cart-cta">
+            {t("cart_checkout")}
+          </Link>
+        </div>
       </div>
-
-      <Link
-        to="/checkout"
-        className="inline-block border border-black px-6 py-3 text-sm hover:bg-black hover:text-white transition"
-      >
-        {t("cart_checkout")}
-      </Link>
     </section>
   );
 }

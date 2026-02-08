@@ -18,7 +18,7 @@ export const products = [
       en: "Acrylic on canvas. Unique piece.",
     },
     price: 18500,
-    image: "/images/obra-2.jpg",
+    image: "/images/slider/obra-2.jpg",
     available: true,
   },
   {
@@ -29,7 +29,7 @@ export const products = [
       en: "Material and temporal exploration series.",
     },
     price: 15000,
-    image: "/images/obra-3.jpg",
+    image: "/images/slider/obra-3.jpg",
     available: false,
   },
   {
@@ -40,7 +40,7 @@ export const products = [
       en: "Series of bird exploration.",
     },
     price: 22000,
-    image: "/images/obra-4.jpg",
+    image: "/images/slider/obra-4.jpg",
     available: true,
   },
   {
@@ -51,7 +51,7 @@ export const products = [
       en: "Childhood memories.",
     },
     price: 18000,
-    image: "/images/obra-5.jpg",
+    image: "/images/slider/obra-5.jpg",
     available: true,
   },
   {
@@ -62,7 +62,7 @@ export const products = [
       en: "Series of animal exploration.",
     },
     price: 30000,
-    image: "/images/obra-6.jpg",
+    image: "/images/slider/obra-6.jpg",
     available: false,
   },
 ];
