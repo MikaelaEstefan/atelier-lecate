@@ -28,6 +28,7 @@ export const translations = {
     checkout_title: "Checkout",
     checkout_empty: "No hay productos en el carrito.",
     checkout_pay: "Pagar con Mercado Pago",
+    checkout_note: "Serás redirigido a Mercado Pago para completar el pago.",
   },
 
   en: {
@@ -60,5 +61,6 @@ export const translations = {
     checkout_title: "Checkout",
     checkout_empty: "Your cart is empty.",
     checkout_pay: "Pay with Mercado Pago",
+    checkout_note: "You will be redirected to Mercado Pago to complete your payment.",
   },
 };
