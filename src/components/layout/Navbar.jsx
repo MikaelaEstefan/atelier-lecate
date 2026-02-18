@@ -19,7 +19,7 @@ export default function Navbar() {
 
         {/* Centro */}
         <Link to="/" className="logo">
-          Atelier Lecate
+          Atelier Lecatte
         </Link>
 
         {/* Derecha */}

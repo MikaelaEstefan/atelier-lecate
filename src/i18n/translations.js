@@ -1,6 +1,6 @@
 export const translations = {
   es: {
-    brand: "Atelier Lecate",
+    brand: "Atelier Lecatte",
     nav_shop: "Tienda",
     nav_cart: "Carrito",
     home_tagline:
@@ -32,7 +32,7 @@ export const translations = {
   },
 
   en: {
-    brand: "Atelier Lecate",
+    brand: "Atelier Lecatte",
     nav_shop: "Shop",
     nav_cart: "Cart",
     home_tagline:

@@ -8,14 +8,32 @@ export default function Checkout() {
   const { t } = useT();
 
   const handleCheckout = async () => {
-    const response = await fetch("http://localhost:4000/create-preference", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items }),
-    });
+    try {
+      const response = await fetch("http://localhost:4000/create-preference", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items }),
+      });
 
-    const data = await response.json();
-    window.location.href = data.init_point;
+      if (!response.ok) {
+        const text = await response.text();
+        throw new Error(`Backend error ${response.status}: ${text}`);
+      }
+
+      const data = await response.json();
+
+      const url = data.sandbox_init_point || data.init_point;
+      if (!url) {
+        throw new Error("No vino init_point desde el backend.");
+      }
+
+      window.location.href = url;
+    } catch (err) {
+      console.error(err);
+      alert(
+        "No se pudo iniciar el pago. Revisá la consola y el backend (puerto 4000 y ruta /create-preference)."
+      );
+    }
   };
 
   if (!items.length) {
@@ -60,7 +78,8 @@ export default function Checkout() {
           </button>
 
           <p className="checkout-note">
-            {t("checkout_note") ?? "Serás redirigido a Mercado Pago para completar el pago."}
+            {t("checkout_note") ??
+              "Serás redirigido a Mercado Pago para completar el pago."}
           </p>
         </div>
       </div>

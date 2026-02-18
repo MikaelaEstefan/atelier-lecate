@@ -10,7 +10,7 @@ export default function HomeIntro() {
       {/* Texto */}
       <div className="home-intro-text">
         <h1 className="home-title">
-          Atelier Lecate
+          Atelier Lecatte
         </h1>
 
         <p className="home-description">
