@@ -5,8 +5,11 @@ import { MercadoPagoConfig, Preference } from "mercadopago";
 
 const app = express();
 
-const FRONT_ORIGINS = ["http://localhost:5173", "http://localhost:5174"];
-app.use(cors());
+const PORT = process.env.PORT || 4000;
+
+const FRONT_URL = process.env.FRONT_URL || "http://localhost:5173";
+
+app.use(cors()); 
 app.use(express.json());
 
 app.get("/health", (req, res) => {
@@ -14,7 +17,7 @@ app.get("/health", (req, res) => {
 });
 
 console.log("MP_ACCESS_TOKEN loaded?", Boolean(process.env.MP_ACCESS_TOKEN));
-console.log("Token preview:", process.env.MP_ACCESS_TOKEN?.slice(0, 12));
+console.log("FRONT_URL:", FRONT_URL);
 
 const client = new MercadoPagoConfig({
   accessToken: process.env.MP_ACCESS_TOKEN,
@@ -22,7 +25,11 @@ const client = new MercadoPagoConfig({
 
 const preference = new Preference(client);
 
-const PORT = process.env.PORT || 4000;
+const toNumber = (v) => {
+  if (typeof v === "number") return v;
+  const cleaned = String(v ?? "").replace(/[^\d.]/g, "");
+  return Number(cleaned);
+};
 
 app.post("/create-preference", async (req, res) => {
   try {
@@ -32,12 +39,6 @@ app.post("/create-preference", async (req, res) => {
       return res.status(400).json({ error: "Items missing" });
     }
 
-    const toNumber = (v) => {
-      if (typeof v === "number") return v;
-      const cleaned = String(v ?? "").replace(/[^\d.]/g, "");
-      return Number(cleaned);
-    };
-
     const mpItems = items.map((item) => ({
       title: item.title ?? "Obra",
       unit_price: toNumber(item.price),
@@ -45,11 +46,18 @@ app.post("/create-preference", async (req, res) => {
       currency_id: "UYU",
     }));
 
-    console.log("MP items:", mpItems);
+    console.log("POST /create-preference items:", mpItems);
 
-  
     const result = await preference.create({
-      body: { items: mpItems },
+      body: {
+        items: mpItems,
+        back_urls: {
+          success: `${FRONT_URL}/success`,
+          failure: `${FRONT_URL}/failure`,
+          pending: `${FRONT_URL}/failure`,
+        },
+
+      },
     });
 
     res.json({
@@ -58,6 +66,7 @@ app.post("/create-preference", async (req, res) => {
     });
   } catch (error) {
     console.error("MP error:", error);
+
     res.status(500).json({
       error: "Error creating preference",
       message: error?.message,
