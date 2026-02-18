@@ -6,7 +6,7 @@ import { MercadoPagoConfig, Preference } from "mercadopago";
 const app = express();
 
 const FRONT_ORIGINS = ["http://localhost:5173", "http://localhost:5174"];
-app.use(cors({ origin: FRONT_ORIGINS }));
+app.use(cors());
 app.use(express.json());
 
 app.get("/health", (req, res) => {
@@ -21,6 +21,8 @@ const client = new MercadoPagoConfig({
 });
 
 const preference = new Preference(client);
+
+const PORT = process.env.PORT || 4000;
 
 app.post("/create-preference", async (req, res) => {
   try {
@@ -65,7 +67,7 @@ app.post("/create-preference", async (req, res) => {
   }
 });
 
-app.listen(4000, () => {
-  console.log("✅ Backend running on http://localhost:4000");
+app.listen(PORT, () => {
+  console.log(`✅ Backend running on port ${PORT}`);
 });
 
