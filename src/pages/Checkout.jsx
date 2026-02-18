@@ -3,7 +3,7 @@ import { useCartStore } from "../store/useCartStore";
 import { useT } from "../i18n/useT";
 import { Link } from "react-router-dom";
 
-const API = import.meta.env.VITE_API_URL || "http://localhost:4000";
+const API = import.meta.env.VITE_API_URL;
 
 export default function Checkout() {
   const items = useCartStore((s) => s.items);
@@ -15,6 +15,11 @@ export default function Checkout() {
 
   const handleCheckout = async () => {
     if (!items.length || loading) return;
+
+    if (!API) {
+      setErrorMsg("Falta VITE_API_URL en el .env del front.");
+      return;
+    }
 
     setLoading(true);
     setErrorMsg("");
@@ -42,7 +47,7 @@ export default function Checkout() {
       console.error(err);
       setErrorMsg(
         t("checkout_error") ||
-          "No se pudo iniciar el pago. Asegurate de que el backend esté corriendo en el puerto 4000."
+          "No se pudo iniciar el pago. Asegurate de que el backend esté corriendo y que VITE_API_URL sea correcto."
       );
     } finally {
       setLoading(false);
@@ -91,7 +96,9 @@ export default function Checkout() {
             disabled={loading}
             aria-busy={loading}
           >
-            {loading ? (t("checkout_loading") || "Redirigiendo...") : t("checkout_pay")}
+            {loading
+              ? t("checkout_loading") || "Redirigiendo..."
+              : t("checkout_pay")}
           </button>
 
           {errorMsg && (
